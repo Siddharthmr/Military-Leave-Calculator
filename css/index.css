@@ -250,8 +250,8 @@ input[type="date"], focus {
   }
   .calculatedAmount {
     font-size: 1em;
-    margin-left: 5em;
-    margin-right: 5em;
+    margin-left: 2em;
+    margin-right: 2em;
   }
   .logo {
     width: 20em;
