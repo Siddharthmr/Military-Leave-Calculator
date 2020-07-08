@@ -1,0 +1,166 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://rawcdn.githack.com/Viper5077/Military-Leave-Calculator/a08654fbf0733f65bb245f190304ca30859d088c/css/index.css">
+</head>
+<body>
+    
+<div id=situation>
+
+    <p class=question>What is your current situation?</p>
+    <div class=buttonContainer>
+        <button id=retire>I plan to retire</button>
+        <button id=seperate>I plan to seperate</button>
+        <button id=seperate2>I am being honorably involuntarily separated</button>
+    </div>
+</div>
+<div class="tab">
+
+    <p class=question>When do you plan to retire?</p>
+    <p class=note>Retirement date must be the first day of the month</p>
+    <input id=plannedRetireDate type=date> <br>
+    <br>
+    <p class=or>OR</p>
+    <p class=question>Calculate 20 years in for me: <br> Enter your enlistment or commissioning date</p>
+    <input id=enlistmentDate type=date> <br>
+    <div class=navContainer>
+        <button id=home class=navBtn>Back</button>
+        <button id=nextBtn onclick="nextPrev(1)" class=navBtn>Next</button>
+    </div>
+</div>
+
+<div class="tab">
+
+    <p class=question>At the time of retirement, will you be CONUS or OCONUS?</p>
+    <button id=conus onclick="conus()" class=choice>CONUS</button>
+    <button id=oconus onclick="conus()" class=choice>OCONUS</button><br>
+    <div class=navContainer>
+        <button id=prevBtn onclick="nextPrev(-1)" class=navBtn>Back</button>
+        <button id=nextBtn onclick="nextPrev(1)" class=navBtn>Next</button>
+    </div>
+</div>
+
+<div class="tab">
+
+    <p class=question>How many days of leave do you plan to have built up?</p>
+    <input id=leaveInput class=input placeholder="Enter number of days">
+    <br><br>
+    <p class=or>OR</p>
+    <p class=question>Calculate assuming the standard max for me (Press Next)</p>
+    <p class=note>includes 60 days for fiscal year previous to retirement date (Fiscal year is Oct 1 – Sep 30th)</p>
+    <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+
+    <div class=navContainer>
+        <button id=prevBtn onclick="nextPrev(-1)" class=navBtn>Back</button>
+        <button id=nextBtn onclick="nextPrev(1)" class="navBtn calculate">Calculate</button>
+    </div>
+</div>
+
+
+<div class=tab>
+
+    <p class=calculatedAmount id=calculatedAmount>Please make sure you completed all parts of the form</p>
+    <img class=logo src="https://i.imgur.com/VJZKtP3.png">
+    <div class=navContainer>
+        <button id=prevBtn onclick="nextPrev(-1)" class="navBtn reset">Back</button>
+        <button id=prevBtn onclick="startOver()" class="navBtn">Start Over</button>
+        
+
+    </div>
+</div>
+
+<div class="tab1">
+
+    <p class=question>When do you plan to seperate?</p>
+    <input id=plannedSeperateDate type=date>
+    <div class=navContainer>
+        <button id=home1 class=navBtn>Back</button>
+        <button id=nextBtn onclick="nextPrev1(1)" class=navBtn>Next</button>
+    </div>
+</div>
+
+<div class="tab1">
+
+    <p class=question>How many days of leave do you plan to have built up?</p>
+    <input id=leaveInput1 class=input placeholder="Enter number of days">
+    <br><br>
+    <p class=or>OR</p>
+    <p class=question>Calculate assuming the standard max for me (Press Next)</p>
+    <p class=note>includes 60 days for fiscal year previous to retirement date (Fiscal year is Oct 1 – Sep 30th)</p>
+    <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+
+    <div class=navContainer>
+        <button id=prevBtn onclick="nextPrev1(-1)" class=navBtn>Back</button>
+        <button id=nextBtn onclick="nextPrev1(1)" class="navBtn calculate">Calculate</button>
+    </div>
+</div>
+
+<div class=tab1>
+
+    <p class=calculatedAmount id=calculatedAmount1>Please make sure you completed all parts of the form</p>
+    <div class=navContainer>
+        <button id=prevBtn onclick="nextPrev1(-1)" class="navBtn reset">Back</button>
+        <button id=prevBtn onclick="startOver()" class="navBtn">Start Over</button>
+
+    </div>
+</div>
+<div class="tab2">
+
+    <p class=question>When do you plan to seperate?</p>
+    <input id=plannedSeperateDate2 type=date>
+    <div class=navContainer>
+        <button id=home2 class=navBtn>Back</button>
+        <button id=nextBtn onclick="nextPrev2(1)" class=navBtn>Next</button>
+    </div>
+</div>
+
+
+<div class="tab2">
+
+    <p class=question>How many days of leave do you plan to have built up?</p>
+    <input id=leaveInput2 class=input placeholder="Enter number of days">
+    <br><br>
+    <p class=or>OR</p>
+    <p class=question>Calculate assuming the standard max for me (Press Next)</p>
+    <p class=note>includes 60 days for fiscal year previous to retirement date (Fiscal year is Oct 1 – Sep 30th)</p>
+    <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+
+    <div class=navContainer>
+        <button id=prevBtn onclick="nextPrev2(-1)" class=navBtn>Back</button>
+        <button id=nextBtn onclick="nextPrev2(1)" class="navBtn ">Next</button>
+    </div>
+</div>
+
+<div class="tab2">
+    <p class=question>As an involuntary separatee, you can receive up to 30 days of extra leave or 10 days of PTDY for
+        transitional assistance. Do you plan to use either?</p>
+    <button id=30 onclick="extraLeave()" class=choice>Yes, 30 days extra of leave</button>
+    <button id=10 onclick="extraLeave()" class=choice>Yes, 10 days of PTDY</button>
+    <button id=no onclick="extraLeave()" class=choice>No</button><br>
+
+    <div class=navContainer>
+        <button id=prevBtn onclick="nextPrev2(-1)" class=navBtn>Back</button>
+        <button id=nextBtn onclick="nextPrev2(1)" class="navBtn calculate">Calculate</button>
+    </div>
+</div>
+
+<div class=tab2>
+    <p class=calculatedAmount id=calculatedAmount2>Please make sure you completed all parts of the form</p>
+    <div class=navContainer>
+        <button id=prevBtn onclick="nextPrev2(-1)" class="navBtn reset">Back</button>
+        <button id=prevBtn onclick="startOver()" class="navBtn">Start Over</button>
+
+    </div>
+</div>
+<div class="progressContainer">
+    <div class=progressBarContainer>
+        <div id=progressBar class=progressBar><p id=percentage></p></div>
+    </div>
+</div>
+</body>
+
+</html>
+<script src="https://rawcdn.githack.com/Viper5077/Military-Leave-Calculator/a08654fbf0733f65bb245f190304ca30859d088c/js/retire.js"></script>
+<script src="https://rawcdn.githack.com/Viper5077/Military-Leave-Calculator/a08654fbf0733f65bb245f190304ca30859d088c/js/seperate.js"></script>
+<script src="https://rawcdn.githack.com/Viper5077/Military-Leave-Calculator/a08654fbf0733f65bb245f190304ca30859d088c/js/seperate2.js"></script>
+<script src="https://rawcdn.githack.com/Viper5077/Military-Leave-Calculator/a08654fbf0733f65bb245f190304ca30859d088c/js/index.js"></script>
