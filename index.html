@@ -15,70 +15,100 @@
         </div>
     </div>
     <div class="tab">
-        <p class=question>When do you plan to retire?</p>
-        <input id=plannedRetireDate type=date>
-        <p class=note>Retirement date must be the first day of the month</p>
-        <p class=or>OR</p>
-        <p class=question>Calculate 20 years in for me: <br> Enter your enlistment or commissioning date</p>
-        <input id=enlistmentDate type=date>
-        <div class=navContainer>
-            <button id=home class=navBtn>Back</button>
-            <button id=nextBtn onclick="nextPrev(1)" class=navBtn>Next</button>
+        <div class=twoColumn>
+            <div class=firstColumn>
+                <p class=question>When do you plan to retire?</p>
+                <input id=plannedRetireDate type=date>
+                <p class=note>Retirement date must be the first day of the month</p>
+            </div>
+            <div class=secondColumn>
+                <p class=or>OR</p>
+            </div>
+            <div class=thirdColumn>
+                <p class=question>Calculate 20 years in for me: <br> Enter your enlistment or commissioning date</p>
+                <input id=enlistmentDate type=date>
+            </div>
+            <div class=navContainer>
+                <button id=home class=navBtn>Back</button>
+                <button id=nextBtn onclick="nextPrev(1)" class=navBtn>Next</button>
+            </div>
         </div>
+
     </div>
     <div class="tab">
         <p class=question>At the time of retirement, will you be CONUS or OCONUS?</p>
         <button id=conus onclick="conus()" class=choice>CONUS</button>
         <button id=oconus onclick="conus()" class=choice>OCONUS</button><br>
         <div class=navContainer>
-            <button id=prevBtn onclick="nextPrev(-1)" class=navBtn>Back</button>
+            <button onclick="nextPrev(-1)" class=navBtn>Back</button>
             <button id=nextBtn onclick="nextPrev(1)" class=navBtn>Next</button>
         </div>
     </div>
     <div class="tab">
-        <p class=question>How many days of leave do you plan to have built up?</p>
-        <input id=leaveInput class=input placeholder="Enter number of days">
-        <p class=or>OR</p>
-        <p class=question>Calculate assuming the standard max for me (Press Next)</p>
-        <p class=note>includes 60 days for fiscal year previous to retirement date (Fiscal year is Oct 1 – Sep 30th)</p>
-        <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
-        <div class=navContainer>
-            <button id=prevBtn onclick="nextPrev(-1)" class=navBtn>Back</button>
-            <button id=nextBtn onclick="nextPrev(1)" class="navBtn calculate">Calculate</button>
+        <div class=twoColumn>
+            <div class=firstColumn>
+                <p class=question>How many days of leave do you plan to have built up?</p>
+                <input id=leaveInput class=input placeholder="Enter number of days">
+                <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+            </div>
+            <div class=secondColumn>
+                <p class=or>OR</p>
+            </div>
+            <div class=thirdColumn>
+                <p class=question>Calculate assuming the standard max for me (Press Next)</p>
+                <p class=note>includes 60 days for fiscal year previous to retirement date (Fiscal year is Oct 1 – Sep
+                    30th)</p>
+                <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+            </div>
+            <div class=navContainer>
+                <button onclick="nextPrev(-1)" class=navBtn>Back</button>
+                <button id=nextBtn onclick="nextPrev(1)" class="navBtn calculate">Calculate</button>
+            </div>
         </div>
     </div>
     <div class=tab>
         <p class=calculatedAmount id=calculatedAmount>Please make sure you completed all parts of the form</p>
         <img class=logo src="https://i.imgur.com/VJZKtP3.png">
         <div class=navContainer>
-            <button id=prevBtn onclick="nextPrev(-1)" class="navBtn reset">Back</button>
-            <button id=prevBtn onclick="startOver()" class="navBtn">Start Over</button>
+            <button onclick="nextPrev(-1)" class="navBtn reset">Back</button>
+            <button id=nextBtn onclick="startOver()" class="navBtn">Start Over</button>
         </div>
     </div>
     <div class="tab1">
         <p class=question>When do you plan to seperate?</p>
         <input id=plannedSeperateDate type=date>
         <p class=note>Members voluntarily separating do not get PTDY days</p>
-
         <div class=navContainer>
             <button id=home1 class=navBtn>Back</button>
             <button id=nextBtn onclick="nextPrev1(1)" class=navBtn>Next</button>
         </div>
     </div>
     <div class="tab1">
-        <p class=question>How many days of leave do you plan to have built up?</p>
-        <input id=leaveInput1 class=input placeholder="Enter number of days">
-        <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
-        <p class=or>OR</p>
-        <p class=question>Calculate how much leave I'll have by my separation date assuming today (<input id=today
-                class=input type=date>) I have <input class=input id=daysAlreadyEarned> days of leave.</p>
-        <p class=note>The date of separation is not included as a day of leave</p>
-        <p class=note>Reminder that only 60 days may be carried over per fiscal year which ends Sept 30th every year.
-            Starting Oct 1st, the user can start adding more on top of the 60 days
-        </p>
-        <div class=navContainer>
-            <button id=prevBtn onclick="nextPrev1(-1)" class=navBtn>Back</button>
-            <button id=nextBtn onclick="nextPrev1(1)" class="navBtn calculate">Calculate</button>
+        <div class=twoColumn>
+            <div class=firstColumn>
+                <p class=question>How many days of leave do you plan to have built up?</p>
+                <input id=leaveInput1 class=input placeholder="Enter number of days">
+                <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+                <p class=note>The date of separation is not included as a day of leave</p>
+            </div>
+            <div class=secondColumn>
+                <p class=or>OR</p>
+            </div>
+            <div class=thirdColumn>
+                <p class="question margin">Calculate how much leave I'll have by my separation date assuming today
+                    (<input id=today class=input type=date>) I have <input class=input id=daysAlreadyEarned> days of
+                    leave.
+                </p>
+                <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+                <p class=note>Reminder that only 60 days may be carried over per fiscal year which ends Sept 30th every
+                    year.
+                    Starting Oct 1st, you can start adding more on top of the 60 days
+                </p>
+            </div>
+            <div class=navContainer>
+                <button id=prevBtn onclick="nextPrev1(-1)" class=navBtn>Back</button>
+                <button id=nextBtn onclick="nextPrev1(1)" class="navBtn calculate">Calculate</button>
+            </div>
         </div>
     </div>
     <div class=tab1>
@@ -99,20 +129,32 @@
         </div>
     </div>
     <div class="tab2">
-        <p class=question>How many days of leave do you plan to have built up?</p>
-        <input id=leaveInput2 class=input placeholder="Enter number of days">
-        <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
-        <p class=or>OR</p>
-        <p class=question>Calculate how much leave I'll have by my separation date assuming today (<input id=today1
-                class=input type=date>) I have <input class=input id=daysAlreadyEarned1> days of leave.</p>
-        <p class=note>The date of separation is not included as a day of leave</p>
-        <p class=note>Reminder that only 60 days may be carried over per fiscal year which ends Sept 30th every year.
-            Starting Oct 1st, the user can start adding more on top of the 60 days
-            <p>
-                <div class=navContainer>
-                    <button id=prevBtn onclick="nextPrev2(-1)" class=navBtn>Back</button>
-                    <button id=nextBtn onclick="nextPrev2(1)" class="navBtn ">Next</button>
-                </div>
+        <div class=twoColumn>
+            <div class=firstColumn>
+                <p class=question>How many days of leave do you plan to have built up?</p>
+                <input id=leaveInput2 class=input placeholder="Enter number of days">
+                <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+                <p class=note>The date of separation is not included as a day of leave</p>
+            </div>
+            <div class=secondColumn>
+                <p class=or>OR</p>
+            </div>
+            <div class=thirdColumn>
+                <p class="question margin">Calculate how much leave I'll have by my separation date assuming today
+                    (<input id=today1 class=input type=date>) I have <input class=input id=daysAlreadyEarned1> days of
+                    leave.</p>
+                <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+                <p class=note>Reminder that only 60 days may be carried over per fiscal year which ends Sept 30th every
+                    year.
+                    Starting Oct 1st, the user can start adding more on top of the 60 days
+                    <p>
+            </div>
+            <div class=navContainer>
+                <button id=prevBtn onclick="nextPrev2(-1)" class=navBtn>Back</button>
+                <button id=nextBtn onclick="nextPrev2(1)" class="navBtn ">Next</button>
+            </div>
+        </div>
+
     </div>
     <div class="tab2">
         <p class=question>As an involuntary separatee, you can receive up to 30 days of extra leave or 10 days of PTDY

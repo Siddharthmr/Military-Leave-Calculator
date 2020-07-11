@@ -4,6 +4,9 @@ var terminalLeave = 0
 var currentTab2 = 0
 var todaysDate = new Date()
 document.getElementById("today1").value = new Date().toISOString().substr(0, 10)
+document.getElementById("today1").addEventListener("change", function () {
+  todaysDate = document.getElementById("today1").value
+})
 document.getElementsByClassName("calculate")[2].addEventListener("click", calculation2)
 document.getElementById("seperate2").addEventListener("click", function () {
   document.getElementById("situation").style.display = "none"
@@ -80,7 +83,7 @@ function calculation2() {
     leaveStartDate.setDate(leaveStartDate.getDate() - terminalLeave)
     var month = leaveStartDate.toLocaleString('default', { month: 'long' });
     var month2 = seperationDate.toLocaleString('default', { month: 'long' });
-    document.getElementById("calculatedAmount2").innerHTML = `With a final seperation date of ${month2} ${seperationDate.getDate()}, ${seperationDate.getFullYear()} (${seperationDate.toLocaleDateString('en-US')}), you should start terminal leave on ${month} ${leaveStartDate.getDate()}, ${leaveStartDate.getFullYear()} (${leaveStartDate.toLocaleDateString('en-US')}). This assumes ${ptdy} days of PTDY and ${terminalLeave} days of terminal leave, including the leave earned while on terminal leave.`
+    document.getElementById("calculatedAmount2").innerHTML = `With a final seperation date of ${month2} ${seperationDate.getDate()}, ${seperationDate.getFullYear()} (${seperationDate.toLocaleDateString('en-US')}), you should start terminal leave on ${month} ${leaveStartDate.getDate()}, ${leaveStartDate.getFullYear()} (${leaveStartDate.toLocaleDateString('en-US')}). This assumes ${ptdy} days of PTDY and ${terminalLeave - ptdy} days of terminal leave, including the leave earned while on terminal leave.`
   }
 }
 function monthDiff(d1, d2) {
