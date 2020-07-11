@@ -2,6 +2,11 @@ var leaveStartDate, earnedDays, seperationDate
 var dateArray = []
 var terminalLeave = 0
 var currentTab1 = 0
+var todaysDate = new Date()
+document.getElementById("today").value = new Date().toISOString().substr(0, 10)
+document.getElementById("today").addEventListener("change", function () {
+  todaysDate = document.getElementById("today").value
+})
 document.getElementsByClassName("calculate")[1].addEventListener("click", calculation1)
 document.getElementById("seperate").addEventListener("click", function () {
   document.getElementById("situation").style.display = "none"
@@ -55,20 +60,20 @@ document.getElementById("plannedSeperateDate").addEventListener("change", functi
   leaveStartDate = new Date(dateArray);
 });
 function calculation1() {
-  if (document.getElementById("plannedSeperateDate") == "") {
+  if ((document.getElementById("plannedSeperateDate") == "") || (document.getElementById("leaveInput") == "" && document.getElementById("daysAlreadyEarned") == "")) {
     document.getElementById("calculatedAmount1").innerHTML = `Please make sure you complete all parts of the form.`
   } else {
     terminalLeave = 0
-    terminalLeave += +calculateEarnedDays(new Date(`${+dateArray[0] - 1}-10-1`), new Date(`${+dateArray[0]}-${+dateArray[1]}-${+dateArray[2]}`))
     if (document.getElementById("leaveInput1").value == "") {
-      terminalLeave += 60
+      terminalLeave += +calculateEarnedDays(new Date(`${todaysDate.getFullYear()}-${todaysDate.getMonth() + 2}-1`), new Date(`${+dateArray[0]}-${+dateArray[1]}-1`))
+      terminalLeave += +document.getElementById("daysAlreadyEarned").value
     } else {
       terminalLeave += +document.getElementById("leaveInput1").value
     }
     leaveStartDate.setDate(leaveStartDate.getDate() - terminalLeave)
     var leaveStartMonth = leaveStartDate.toLocaleString('default', { month: 'long' });
     var serperationMonth = seperationDate.toLocaleString('default', { month: 'long' });
-    document.getElementById("calculatedAmount1").innerHTML = `With a final seperation date of ${serperationMonth} ${seperationDate.getDate()}, ${seperationDate.getFullYear()} (${seperationDate.toLocaleDateString('en-US')}), you should start terminal leave on ${leaveStartMonth} ${leaveStartDate.getDate()}, ${leaveStartDate.getFullYear()} (${leaveStartDate.toLocaleDateString('en-US')}). This assumes ${terminalLeave} days of terminal leave, including the leave earned while on terminal leave (${earnedDays}).`
+    document.getElementById("calculatedAmount1").innerHTML = `With a final seperation date of ${serperationMonth} ${seperationDate.getDate()}, ${seperationDate.getFullYear()} (${seperationDate.toLocaleDateString('en-US')}), you should start terminal leave on ${leaveStartMonth} ${leaveStartDate.getDate()}, ${leaveStartDate.getFullYear()} (${leaveStartDate.toLocaleDateString('en-US')}). This assumes ${terminalLeave} days of terminal leave, including the leave earned while on terminal leave.`
   }
 }
 function monthDiff(d1, d2) {

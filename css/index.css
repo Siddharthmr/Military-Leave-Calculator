@@ -15,17 +15,20 @@ body {
 
 .question {
   font-size: 2em;
+  margin-left: 5em;
+  margin-right: 5em;
 }
 
 .calculatedAmount {
-  font-size: 1.5em;
+  font-size: 2em;
   margin-left: 100px;
   margin-right: 100px;
 }
 
 .or {
-  font-size: 50px;
+  font-size: 45px;
   font-weight: bold;
+  margin: .5em;
 }
 
 button {
@@ -194,11 +197,19 @@ button {
 }
 
 .note {
+  margin-left: 15%;
   font-size: 1em;
   font-style: italic;
+  width: 70%;
+  text-align: left;
+  padding: 1em;
+  background-color: #e7f3fe;
+  border-left: .5em solid #192e60;
+  border-radius: 5px;
 }
 
 .note:before {
+  font-weight: bold;
   content: "Note: ";
 }
 
@@ -252,9 +263,16 @@ input[type="date"], focus {
     font-size: 1em;
     margin-left: 2em;
     margin-right: 2em;
+    font-weight: normal;
   }
   .logo {
     width: 20em;
+  }
+}
+
+@media (max-width: 1500px) {
+  .question {
+    font-size: 1.5em;
   }
 }
 
@@ -262,4 +280,12 @@ input[type="date"], focus {
   #percentage {
     margin-top: 1em;
   }
+}
+
+#today {
+  font-size: 1em;
+}
+
+#today1 {
+  font-size: 1em;
 }
