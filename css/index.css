@@ -1,6 +1,5 @@
 body {
   display: flex;
-  flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: center;
@@ -8,9 +7,26 @@ body {
   color: #2a2e2f;
 }
 
-.buttonContainer {
+.retirement-tab {
   width: 100%;
-  height: 50%;
+  display: none;
+  margin-bottom: 100px;
+  margin-top: 4em;
+}
+
+.separation-tab {
+  width: 100%;
+  display: none;
+  margin-bottom: 100px;
+  margin-top: 4em;
+}
+
+.involuntary-separation-tab {
+  width: 100%;
+  display: none;
+  margin-bottom: 100px;
+  align-self: center;
+  margin-top: 4em;
 }
 
 .question {
@@ -19,17 +35,23 @@ body {
   margin-right: 5em;
 }
 
-.calculatedAmount {
-  font-size: 2em;
-  margin-left: 100px;
-  margin-right: 100px;
+.or {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  background-color: transparent;
+  font-size: 4em;
+  height: 1em;
+  font-weight: bold;
+  width: 10em;
+  margin-left: -5em;
+  margin-bottom: -.5em;
+  z-index: -1;
 }
 
-.or {
-  align-self: center;
-  font-size: 4em;
-  font-weight: bold;
-  text-align: center;
+.button-container {
+  width: 100%;
+  height: 50%;
 }
 
 button {
@@ -39,107 +61,17 @@ button {
   padding: 10px;
   outline: none;
   margin: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: transparent;
 }
 
 .choice:focus {
-  border-style: solid;
-  border-width: 2px;
   border-color: #33466e;
 }
 
-.fade-in {
-  animation: fadeIn ease .5s;
-  -webkit-animation: fadeIn ease .5s;
-  -moz-animation: fadeIn ease .5s;
-  -o-animation: fadeIn ease .5s;
-  -ms-animation: fadeIn ease .5s;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.fade-out {
-  animation: fadeOut;
-  -webkit-animation: fadeOut ease .5s;
-  -moz-animation: fadeOut ease .5s;
-  -o-animation: fadeOut ease .5s;
-  -ms-animation: fadeOut ease .5s;
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.tab {
-  display: none;
-  margin-bottom: 100px;
-  margin-top: 4em;
-}
-
-.tab1 {
-  display: none;
-  margin-bottom: 100px;
-  margin-top: 4em;
-}
-
-.twoColumn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 33.33%;
-}
-
-.firstColumn {
-  width: 49%;
-}
-
-.secondColumn {
-  width: 2%;
-  text-align: center;
-}
-
-.thirdColumn {
-  width: 49%;
-}
-
-.tab2 {
-  display: none;
-  margin-bottom: 100px;
-  align-self: center;
-  margin-top: 4em;
-}
-
-.navBtn {
-  margin-top: 40px;
-  background-color: #192e60;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 10px;
-  padding: 10px;
-  outline: none;
-  color: #f2f2f2;
-  width: 50%;
-  margin: 20px;
-  transition-duration: .4s;
-}
-
-.navBtn:hover {
-  background-color: #33466e;
-}
-
 .input {
+  width: 15rem;
   border-style: solid;
   border-width: 2px;
   border-color: #2a2e2f;
@@ -159,7 +91,34 @@ button {
   border-color: #192e60;
 }
 
-.navContainer {
+.calculated-output {
+  font-size: 2em;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.three-column-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 33.33%;
+}
+
+.column-1 {
+  width: 46%;
+}
+
+.column-2 {
+  width: 5%;
+  text-align: center;
+}
+
+.column-3 {
+  width: 49%;
+}
+
+.navigation-container {
   background-color: #f2f2f2;
   width: 100%;
   position: absolute;
@@ -170,11 +129,22 @@ button {
   justify-content: space-between;
 }
 
-.blank {
+.nav-btn {
+  margin-top: 40px;
+  background-color: #192e60;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  padding: 10px;
+  outline: none;
+  color: #f2f2f2;
   width: 50%;
-  background-color: transparent;
   margin: 20px;
-  border: none;
+  transition-duration: .4s;
+}
+
+.nav-btn:hover {
+  background-color: #33466e;
 }
 
 .progressContainer {
@@ -189,7 +159,7 @@ button {
   align-items: center;
 }
 
-.progressBarContainer {
+.progress-bar-container {
   width: 100%;
   height: 50%;
   background-color: #fff;
@@ -212,10 +182,6 @@ button {
   font-weight: bold;
   font-size: 1em;
   margin-top: .5em;
-}
-
-#situation {
-  margin-top: 10%;
 }
 
 .note {
@@ -265,10 +231,6 @@ input[type="date"], focus {
   -moz-box-shadow: none;
 }
 
-#situation {
-  margin-top: 0px;
-}
-
 .logo {
   width: 30em;
 }
@@ -277,22 +239,29 @@ input[type="date"], focus {
   display: none;
 }
 
-@media (max-width: 500px) {
-  .question {
-    font-size: 1em;
-  }
-  .calculatedAmount {
-    font-size: 1em;
-    margin-left: 2em;
-    margin-right: 2em;
-    font-weight: normal;
-  }
-  .logo {
-    width: 20em;
-  }
-  .twoColumn {
-    display: block;
-  }
+.today {
+  font-size: 1rem;
+  padding: 5px;
+}
+
+.extra-margin-right {
+  margin-right: 3em;
+}
+
+.auto-width {
+  width: auto;
+}
+
+.extraLeave {
+  position: absolute;
+  left: 50%;
+  display: none;
+  margin-top: 1em;
+  margin-left: -7.5rem;
+}
+
+#situation {
+  margin-top: 10%;
 }
 
 @media (max-width: 1500px) {
@@ -307,16 +276,33 @@ input[type="date"], focus {
   }
 }
 
-#today {
-  font-size: 1rem;
-  padding: 5px;
-}
-
-#today1 {
-  font-size: 1rem;
-  padding: 5px;
-}
-
-.margin {
-  margin-right: 3em;
+@media (max-width: 700px) {
+  .question {
+    font-size: 1em;
+  }
+  .calculated-output {
+    font-size: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+    font-weight: normal;
+  }
+  .logo {
+    width: 20em;
+  }
+  .three-column-layout {
+    flex-direction: column;
+    display: block;
+  }
+  .column-1 {
+    width: 100%;
+    height: 40%;
+  }
+  .column-2 {
+    width: 100%;
+    height: 20%;
+  }
+  .column-3 {
+    width: 100%;
+    height: 40%;
+  }
 }
