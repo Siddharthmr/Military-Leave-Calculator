@@ -9,7 +9,7 @@ document.getElementById("progressBar").style.width = "0%"
 
 // Main calculation for involuntary separation calculation
 function invSeparationCalculation() {
-  if ((document.getElementById("plannedInvSeparateDate").value == "") || (extraLeaveDays == "") || (document.getElementsByClassName("leaveInput")[2] == "" && document.getElementsByClassName("daysAlreadyEarned")[2].value == "")) {
+  if (document.getElementById("plannedInvSeparateDate").value == "" || extraLeaveDays == "") {
     document.getElementsByClassName("calculated-output")[2].innerHTML = `Please make sure you complete all parts of the form.`
   } else {
     terminalLeave = 0
@@ -24,7 +24,7 @@ function invSeparationCalculation() {
     leaveStartDate.setDate(leaveStartDate.getDate() - (terminalLeave + +extraLeaveDays))
     var leaveStartMonth = leaveStartDate.toLocaleString('default', { month: 'long' });
     var separationMonth = separationDate.toLocaleString('default', { month: 'long' });
-    document.getElementsByClassName("calculated-output")[2].document.getElementById("calculated-output2").innerHTML = `With a final separation date of ${separationMonth} ${separationDate.getDate()}, ${separationDate.getFullYear()} (${separationDate.toLocaleDateString('en-US')}), you should start terminal leave on ${leaveStartMonth} ${leaveStartDate.getDate()}, ${leaveStartDate.getFullYear()} (${leaveStartDate.toLocaleDateString('en-US')}). This assumes ${extraLeaveDays} days of PTDY and ${terminalLeave} days of terminal leave, including the leave earned while on terminal leave.`
+    document.getElementsByClassName("calculated-output")[2].innerHTML = `With a final separation date of ${separationMonth} ${separationDate.getDate()}, ${separationDate.getFullYear()} (${separationDate.toLocaleDateString('en-US')}), you should start terminal leave on ${leaveStartMonth} ${leaveStartDate.getDate()}, ${leaveStartDate.getFullYear()} (${leaveStartDate.toLocaleDateString('en-US')}). This assumes ${extraLeaveDays} days of PTDY and ${terminalLeave} days of terminal leave, including the leave earned while on terminal leave.`
   }
 }
 
