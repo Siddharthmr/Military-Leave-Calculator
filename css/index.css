@@ -297,19 +297,24 @@ input[type="date"], focus {
   }
   .column-1 {
     width: 100%;
-    height: 50%;
+    height: fit-content;
   }
   .column-2 {
+    display: flex;
+    justify-content: center;
+        text-align: center;
     width: 100%;
-    height: 5%;
+    height: fit-content
   }
   .column-3 {
     width: 100%;
-    height: 40%;
+    height: fit-content
   }
   .or{
-    left: 50%;
-  bottom: 60%;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    position: static;
+    margin-left: 0em;
     z-index: 2;
   }
 }
