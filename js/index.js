@@ -1,38 +1,6 @@
 //Main start over function - resets all values
 function startOver() {
-  currentTab = 0
-  leaveStartDate = ""
-  conusOrOconus = ""
-  earnedDays = 0
-  retirementDate = ""
-  ptdy = 0
-  terminalLeave = 0
-  separationDate = ""
-  extraLeaveDays = 0
-  input = ""
-  var retirementTab = document.getElementsByClassName("retirement-tab")
-  for (i = 0; i < retirementTab.length; i++) {
-    retirementTab[i].style.display = "none"
-  }
-  var separationTab = document.getElementsByClassName("separation-tab")
-  for (i = 0; i < separationTab.length; i++) {
-    separationTab[i].style.display = "none"
-  }
-  var involuntaryseparationTab = document.getElementsByClassName("involuntary-separation-tab")
-  for (i = 0; i < involuntaryseparationTab.length; i++) {
-    involuntaryseparationTab[i].style.display = "none"
-  }
-  document.getElementById("situation").style.display = "block"
-  document.getElementById("progressBar").style.width = "0%"
-  var elements = document.querySelectorAll("#extraLeaveDays, #enlistmentDate, #plannedRetireDate, #leaveInput, #leaveInput1, #leaveInput2, #plannedSeparateDate, #plannedInvSeparateDate")
-  for (i = 0; i < elements.length; i++) {
-    elements[i].value = ""
-  }
-  var elements = document.querySelectorAll("#no, #yes-extraLeave, #yes-ptdy, #oconus, #conus")
-  for (i = 0; i < elements.length; i++) {
-    elements[i].style.borderColor = "transparent"
-  }
-  document.getElementById("extraLeaveDays").style.display = "none"
+  location.reload();
 }
 //Event Listeners
 document.getElementsByClassName("leaveInput")[0].addEventListener("input", function () {

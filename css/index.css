@@ -302,7 +302,7 @@ input[type="date"], focus {
   .column-2 {
     display: flex;
     justify-content: center;
-        text-align: center;
+    text-align: center;
     width: 100%;
     height: fit-content
   }
@@ -310,7 +310,7 @@ input[type="date"], focus {
     width: 100%;
     height: fit-content
   }
-  .or{
+  .or {
     margin-top: 0em;
     margin-bottom: 0em;
     position: static;
